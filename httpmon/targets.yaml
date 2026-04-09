@@ -1,0 +1,19 @@
+targets:
+  - name: "JSONPlaceholder"
+    url: "https://jsonplaceholder.typicode.com/posts/1"
+    timeout: 3.0
+    expected_status: 200
+  - name: "Httpbin"
+    url: "https://httpbin.org/get"
+    timeout: 5.0
+    expected_status: 200
+  - name: "Facebook"
+    url: "https://www.facebook.com/"
+    timeout: 5.0
+    expected_status: 200
+  - name: "Non Existant"
+    url: "https://www.don't-exist.com/"
+    timeout: 5.0
+    expected_status: 200
+
+

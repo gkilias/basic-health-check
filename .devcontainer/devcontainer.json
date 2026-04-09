@@ -1,0 +1,29 @@
+{
+  "name": "Python3.12",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "."
+  },
+  "postCreateCommand": "cd /workspaces/health-ping/httpmon && uv sync && echo 'source /workspaces/health-ping/httpmon/.venv/bin/activate' >> ~/.bashrc",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.black-formatter",
+        "charliermarsh.ruff"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "${containerWorkspaceFolder}/httpmon/.venv/bin/python",
+        "[python]": {
+          "editor.formatOnSave": true,
+          "editor.defaultFormatter": "ms-python.black-formatter",
+          "editor.codeActionsOnSave": {
+            "source.fixAll.ruff": "explicit",
+            "source.organizeImports.ruff": "explicit"
+          }
+        },
+        "ruff.configuration": "${containerWorkspaceFolder}/httpmon/pyproject.toml"
+      }
+    }
+  }
+}
